@@ -8,7 +8,7 @@ import { Progress } from "@/components/ui/progress"
 import { motion } from "framer-motion"
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 import { Briefcase, DollarSign, Clock, Users, Star, ChevronRight, Plus } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 
 
 // Mock data for the dashboard
@@ -35,15 +35,17 @@ const spendingData = [
 
 export default function ClientDashboard() {
   const [activeTab, setActiveTab] = useState('overview')
-
+  const {id} = useParams();
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 to-indigo-50 p-6">
       <div className="max-w-7xl mx-auto">
         <header className="flex justify-between items-center mb-8">
           <h1 className="text-3xl font-bold text-gray-900">Client Dashboard</h1>
+          <Link to={`/post-jobs/${id}`}>
           <Button>
             <Plus className="mr-2 h-4 w-4" /> Post a New Job
           </Button>
+          </Link>
         </header>
 
         <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-4">

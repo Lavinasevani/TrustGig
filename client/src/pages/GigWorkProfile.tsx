@@ -9,8 +9,10 @@ import { Textarea } from "@/components/ui/textarea"
 import { Briefcase, DollarSign, Edit, Globe, Mail, MapPin, Phone, Save, Star } from "lucide-react"
 
 import { useState } from "react"
+import { Link, useParams } from "react-router-dom"
 
 export function GigWorkerProfile() {
+  const {id} = useParams();
     const [isEditing, setIsEditing] = useState(false)
     const [workerData, setWorkerData] = useState({
       name: "Jane Smith",
@@ -46,7 +48,7 @@ export function GigWorkerProfile() {
               </Avatar>
               <div className="flex-grow text-center sm:text-left">
                 <CardTitle className="text-2xl mb-2">{workerData.name}</CardTitle>
-                <p className="text-gray-500">{workerData.title}</p>
+                <p className="text-gray-500">{workerData.title}</p> 
                 <div className="flex items-center justify-center sm:justify-start mt-2">
                   <MapPin className="h-4 w-4 text-gray-400 mr-1" />
                   <span className="text-sm text-gray-500">{workerData.location}</span>
@@ -56,6 +58,12 @@ export function GigWorkerProfile() {
                 {isEditing ? <Save className="mr-2 h-4 w-4" /> : <Edit className="mr-2 h-4 w-4" />}
                 {isEditing ? 'Save' : 'Edit'}
               </Button>
+              
+            <Link to={`/dashboard/gig/${id}`}>
+            <Button>
+              View Dashboard
+            </Button>
+            </Link>
             </CardHeader>
             <CardContent>
               <Tabs defaultValue="about" className="mt-6">

@@ -40,9 +40,11 @@ export default function GigWorkerDashboard() {
       <div className="max-w-7xl mx-auto">
         <header className="flex justify-between items-center mb-8">
           <h1 className="text-3xl font-bold text-gray-900">Freelancer Dashboard</h1>
+          <Link to="/explore">'
           <Button>
             <Search className="mr-2 h-4 w-4" /> Find New Jobs
           </Button>
+          </Link>
         </header>
 
         <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-4">
